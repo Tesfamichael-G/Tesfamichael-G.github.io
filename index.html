@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Tesfamichael G. | Computer Engineering</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f9ff;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            color: #1e2f3e;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* header / hero */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            background: linear-gradient(135deg, #0a2e3f, #1a4b65);
+            color: white;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-text {
+            flex: 2;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-top: 0.75rem;
+            opacity: 0.9;
+        }
+
+        .hero-avatar {
+            flex: 0 0 120px;
+            text-align: center;
+        }
+
+        .avatar-placeholder {
+            background: #ffb347;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1e2a3a;
+            box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        /* section titles */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2rem 0 1.2rem 0;
+            border-left: 5px solid #2c7da0;
+            padding-left: 1rem;
+        }
+
+        /* course cards grid */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+        }
+
+        .course-code {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #2c7da0;
+            font-weight: 600;
+        }
+
+        .card h3 {
+            margin: 0.5rem 0;
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            color: #4a627a;
+            font-size: 0.9rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #e9f5fe;
+            border-radius: 20px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 0.8rem;
+        }
+
+        .status-active {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-upcoming {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* two column layout for research & contact */
+        .two-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-box {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2edf7;
+        }
+
+        .info-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #0f3b4f;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 0.7rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .info-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #2c7da0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #cbdde9;
+            color: #5b6e8c;
+            font-size: 0.85rem;
+        }
+
+        a {
+            color: #1a4b65;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Dr. Tesfamichael G.</h1>
+                <p>Assistant Professor in Computer Engineering.</p>
+                <div class="badge"> Jigjiga University</div>
+            </div>
+            <div class="hero-avatar">
+                <div class="avatar-placeholder">TG</div>
+            </div>
+        </div>
+
+        <!-- Courses I Teach -->
+        <div class="section-title">Courses & Teaching</div>
+        <div class="grid-cards">
+            <!-- ECEG 6101 - updated description (common academic norms) -->
+            <a href="ECEG-6101-Research-Methods-in-Engineering/" class="card">
+                <div class="course-code">ECEG 6101</div>
+                <h3>Research Methods in Engineering</h3>
+                <p>This graduate-level course equips M.Sc. students with essential research competencies: formulating
+                    testable problems, conducting systematic literature reviews, designing experiments/simulations,
+                    understanding research ethics, and writing a formal thesis proposal. Emphasis on engineering
+                    applications and reproducible research.</p>
+                <span class="status-badge status-active">✓ Full course site & interactive modules</span>
+            </a>
+
+            <!-- Future course 1 -->
+            <div class="card" style="opacity: 0.8;">
+                <div class="course-code">CSCI 210</div>
+                <h3>Object Oriented Programming</h3>
+                <p>Principles of encapsulation, inheritance, polymorphism, and design patterns using Java/Python.
+                    Hands-on projects.</p>
+                <span class="status-badge status-upcoming">Coming soon</span>
+            </div>
+
+            <!-- Future course 2 -->
+            <div class="card" style="opacity: 0.8;">
+                <div class="course-code">CSCI 315</div>
+                <h3>Design and Analysis of Algorithms</h3>
+                <p>Complexity analysis, divide & conquer, dynamic programming, graph algorithms, NP-completeness.</p>
+                <span class="status-badge status-upcoming">Coming soon</span>
+            </div>
+
+            <!-- Future course 3 -->
+            <div class="card" style="opacity: 0.8;">
+                <div class="course-code">CSCI 340</div>
+                <h3>Database Systems</h3>
+                <p>Relational model, SQL, normalization, indexing, transactions, and NoSQL fundamentals.</p>
+                <span class="status-badge status-upcoming">Coming soon</span>
+            </div>
+
+            <!-- Future course 4 -->
+            <div class="card" style="opacity: 0.8;">
+                <div class="course-code">CSCI 350</div>
+                <h3>Operating Systems</h3>
+                <p>Process scheduling, memory management, file systems, concurrency, and virtualization.</p>
+                <span class="status-badge status-upcoming">Coming soon</span>
+            </div>
+
+            <!-- Future course 5 -->
+            <div class="card" style="opacity: 0.8;">
+                <div class="course-code">CSCI 220</div>
+                <h3>Computer Architecture and Organization</h3>
+                <p>Instruction set design, pipelining, cache hierarchy, and performance optimization.</p>
+                <span class="status-badge status-upcoming">Coming soon</span>
+            </div>
+
+            <!-- Future course 6 -->
+            <div class="card" style="opacity: 0.8;">
+                <div class="course-code">CSCI 250</div>
+                <h3>Data Structures</h3>
+                <p>Stacks, queues, trees, hash tables, graphs; complexity and implementation in C++/Java.</p>
+                <span class="status-badge status-upcoming">Coming soon</span>
+            </div>
+        </div>
+
+        <!-- Research & Publications + Contact -->
+        <div class="two-columns">
+            <div class="info-box">
+                <h3>🔬 Research Interests</h3>
+                <ul class="info-list">
+                    <li>Massive MIMO and beamforming</li>
+                    <li>Reconfigurable Intelligent Surfaces (RIS)</li>
+                    <li>Machine learning for physical layer</li>
+                    <li>Energy-efficient wireless networks</li>
+                    <li>IoT and Edge computing</li>
+                </ul>
+                <h3 style="margin-top: 1.5rem;">📄 Selected Publications</h3>
+                <ul class="info-list">
+                    <li>G. Tesfamichael, et al., "RIS-aided mmWave MIMO: A survey," <em>IEEE Comm. Surveys &
+                            Tutorials</em>, 2025.</li>
+                    <li>G. Tesfamichael & A. Ahmed, "Deep learning for channel estimation," <em>IEEE Trans. Wireless
+                            Comm.</em>, 2024.</li>
+                    <li><a href="#">View all on Google Scholar →</a></li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>📬 Contact & Office</h3>
+                <p><strong>Email:</strong> tesfamichael.g@example.edu<br>
+                    <strong>Office:</strong> Engineering Hall, Room 402<br>
+                    <strong>Office hours:</strong> Monday 10:00 – 12:00 (or by appointment)
+                </p>
+                <hr style="margin: 1rem 0; border-color:#e2edf7;">
+                <h3>🌐 Links</h3>
+                <ul class="info-list">
+                    <li><a href="https://github.com/tesfamichael-g" target="_blank">GitHub Profile</a></li>
+                    <li><a href="#">Google Scholar</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">ResearchGate</a></li>
+                </ul>
+                <h3 style="margin-top: 1rem;">🛠️ Resources for Students</h3>
+                <ul class="info-list">
+                    <li><a href="#">Zotero setup guide</a></li>
+                    <li><a href="#">LaTeX template for thesis</a></li>
+                    <li><a href="#">Communication engineering toolbox (MATLAB)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Recent News / Updates -->
+        <div class="section-title">📢 Recent News</div>
+        <div class="info-box" style="margin-bottom: 1rem;">
+            <div style="margin-bottom: 0.8rem;">
+                <span style="font-weight:600;">Apr 2026</span> – Launched complete interactive course site for
+                <strong>ECEG 6101 Research Methods</strong>.
+            </div>
+            <div style="margin-bottom: 0.8rem;">
+                <span style="font-weight:600;">Mar 2026</span> – Paper accepted at IEEE ICC 2026 on "RIS-assisted
+                localization".
+            </div>
+            <div>
+                <span style="font-weight:600;">Feb 2026</span> – Keynote talk at East Africa Comms Summit.
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 Dr. Tesfamichael G. | Last updated April 30, 2026</p>
+        </footer>
+    </div>
+</body>
+
+</html>
