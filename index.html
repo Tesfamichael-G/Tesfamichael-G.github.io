@@ -4,220 +4,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Tesfamichael G. | Computer Engineering</title>
+    <title>ECEG-6101: Research Methods in Engineering</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-color: #003366;
+            /* Academic Blue */
+            --secondary-color: #f4f4f4;
+            --accent-color: #d9534f;
+            --text-color: #333;
+            --border-color: #ddd;
         }
 
         body {
-            background: #f5f9ff;
-            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-            color: #1e2f3e;
-            line-height: 1.5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-
-        /* header / hero */
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            align-items: center;
-            background: linear-gradient(135deg, #0a2e3f, #1a4b65);
+        /* Header */
+        header {
+            background: var(--primary-color);
             color: white;
-            border-radius: 2rem;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+            padding: 2rem 0;
+            text-align: center;
         }
 
-        .hero-text {
-            flex: 2;
-        }
-
-        .hero h1 {
+        header h1 {
+            margin: 0;
             font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            margin-top: 0.75rem;
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
             opacity: 0.9;
         }
 
-        .hero-avatar {
-            flex: 0 0 120px;
-            text-align: center;
+        /* Navigation */
+        nav {
+            background: #333;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .avatar-placeholder {
-            background: #ffb347;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            font-weight: bold;
-            color: #1e2a3a;
-            box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.2);
+            flex-wrap: wrap;
         }
 
-        .badge {
-            background: rgba(255, 255, 255, 0.2);
-            display: inline-block;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            margin-top: 1rem;
+        nav ul li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
         }
 
-        /* section titles */
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin: 2rem 0 1.2rem 0;
-            border-left: 5px solid #2c7da0;
-            padding-left: 1rem;
+        nav ul li a:hover {
+            background: var(--accent-color);
         }
 
-        /* course cards grid */
-        .grid-cards {
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 7px;
+            overflow: hidden;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        h3 {
+            color: #555;
+            margin-top: 1.5rem;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--secondary-color);
+        }
+
+        /* Cards for Assessments */
+        .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.8rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
 
         .card {
-            background: white;
-            border-radius: 1.5rem;
-            padding: 1.5rem;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
-        }
-
-        .course-code {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #2c7da0;
-            font-weight: 600;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .card h3 {
-            margin: 0.5rem 0;
-            font-size: 1.4rem;
+            margin-top: 0;
+            color: var(--primary-color);
         }
 
-        .card p {
-            color: #4a627a;
-            font-size: 0.9rem;
+        .weight {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            float: right;
         }
 
-        .status-badge {
+        /* Code/Template Blocks */
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .btn {
             display: inline-block;
-            background: #e9f5fe;
-            border-radius: 20px;
-            padding: 0.2rem 0.8rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-top: 0.8rem;
-        }
-
-        .status-active {
-            background: #d1fae5;
-            color: #065f46;
-        }
-
-        .status-upcoming {
-            background: #fef3c7;
-            color: #92400e;
-        }
-
-        /* two column layout for research & contact */
-        .two-columns {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .info-box {
-            background: white;
-            border-radius: 1.5rem;
-            padding: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            border: 1px solid #e2edf7;
-        }
-
-        .info-box h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #0f3b4f;
-        }
-
-        .info-list {
-            list-style: none;
-        }
-
-        .info-list li {
-            margin-bottom: 0.7rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .info-list li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: #2c7da0;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #cbdde9;
-            color: #5b6e8c;
-            font-size: 0.85rem;
-        }
-
-        a {
-            color: #1a4b65;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
             text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .btn:hover {
+            background: #002244;
         }
 
-        @media (max-width: 700px) {
-            .hero {
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            nav ul {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .hero h1 {
+            header h1 {
                 font-size: 1.8rem;
             }
         }
@@ -225,87 +196,218 @@
 </head>
 
 <body>
+
+    <header>
+        <div class="container">
+            <h1>ECEG-6101: Research Methods in Engineering</h1>
+            <p>M.Sc. in Communication Engineering | Year 1, Semester II</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#assessments">Assessments</a></li>
+            <li><a href="#resources">Resources & Templates</a></li>
+            <li><a href="#ethics">Ethics Case Study</a></li>
+            <li><a href="lecture-notes/1. introduction.html">Lecture Notes</a></li>
+            <li><a href="lecture-notes/practice.html">Practice Questions</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
-        <!-- Hero Section -->
-        <div class="hero">
-            <div class="hero-text">
-                <h1>Dr. Tesfamichael G.</h1>
-                <p>Assistant Professor in Computer Engineering.</p>
-                <div class="badge"> Jigjiga University</div>
-            </div>
-            <div class="hero-avatar">
-                <div class="avatar-placeholder">TG</div>
-            </div>
-        </div>
 
-        <!-- Courses I Teach -->
-        <div class="section-title">Courses & Teaching</div>
-        <div class="grid-cards">
-            <!-- ECEG 6101 - updated description (common academic norms) -->
-            <a href="ECEG-6101-Research-Methods-in-Engineering/" class="card">
-                <div class="course-code">ECEG 6101</div>
-                <h3>Research Methods in Engineering</h3>
-                <p>This graduate-level course equips M.Sc. students with essential research competencies: formulating
-                    testable problems, conducting systematic literature reviews, designing experiments/simulations,
-                    understanding research ethics, and writing a formal thesis proposal. Emphasis on engineering
-                    applications and reproducible research.</p>
-                <span class="status-badge status-active">✓ Full course site & interactive modules</span>
-            </a>
+        <!-- OVERVIEW SECTION -->
+        <section id="overview">
+            <h2>Course Overview</h2>
+            <p>This course provides graduate students with the fundamental skills necessary to conduct rigorous
+                engineering research. It covers the entire research lifecycle: from identifying research problems and
+                conducting comprehensive literature reviews to designing experiments/simulations, analyzing data,
+                adhering to ethical standards, and communicating findings.</p>
 
-            <!-- Future course 1 -->
-            <div class="card" style="opacity: 0.8;">
-                <!-- <div class="course-code">CSCI 210</div> -->
-                <h3>Object Oriented Programming</h3>
-                <p>Principles of encapsulation, inheritance, polymorphism, and design patterns using Java/Python.
-                    Hands-on projects.</p>
-                <span class="status-badge status-upcoming">Coming soon</span>
+            <h3>Key Competencies</h3>
+            <ul>
+                <li>Formulate clear, testable research problems in Communication Engineering.</li>
+                <li>Conduct systematic literature reviews using IEEE Xplore, Scopus, etc.</li>
+                <li>Design robust simulation-based or experimental methodologies.</li>
+                <li>Apply statistical analysis to interpret engineering data.</li>
+                <li>Adhere to professional research ethics (Plagiarism, Data Integrity).</li>
+                <li>Develop a high-quality Thesis Proposal.</li>
+            </ul>
+        </section>
+
+        <!-- SCHEDULE SECTION -->
+        <section id="schedule">
+            <h2>Weekly Schedule</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Topic</th>
+                        <th>Key Activities</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Intro to Engineering Research</strong><br>Concepts, Philosophy, Design vs. Research
+                        </td>
+                        <td>Syllabus Review</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Types of Research</strong><br>Quantitative, Simulation, Experimental</td>
+                        <td>Submit <em>Topic Concept Note</em></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>Literature Review</strong><br>Databases, Search Strategies, Reference Managers</td>
+                        <td>Workshop: Zotero/Mendeley</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Research Design</strong><br>Variables, Hypothesis, Validity/Reliability</td>
+                        <td>Start Lit Review Matrix</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Data Analysis</strong><br>Statistics, Visualization, Simulation Validation</td>
+                        <td>Submit Lit Review Matrix</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>Research Ethics</strong><br>Plagiarism, Authorship, Data Integrity</td>
+                        <td>Case Study Discussion</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><strong>Proposal Writing I</strong><br>Problem Statement, Objectives, Methodology</td>
+                        <td>Proposal Draft Due</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><strong>Proposal Writing II</strong><br>Work Plan, Budget, Peer Review</td>
+                        <td>Peer Review Workshop</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><strong>Technical Reporting</strong><br>IMRaD Structure, IEEE Style</td>
+                        <td>Article Review Assigned</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><strong>Presentation Skills</strong><br>Visual Aids, Public Speaking, Q&A</td>
+                        <td>Mock Presentations</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td><strong>Final Proposal Presentations</strong></td>
+                        <td>Student Presentations</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td><strong>Final Exam & Course Wrap-up</strong></td>
+                        <td>Written Exam</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ASSESSMENTS SECTION -->
+        <section id="assessments">
+            <h2>Assessment & Grading</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <span class="weight">40%</span>
+                    <h3>Research Proposal</h3>
+                    <p>A complete thesis proposal (10-15 pages) including problem statement, lit review, methodology,
+                        and work plan. Includes a 15-minute oral defense.</p>
+                </div>
+                <div class="card">
+                    <span class="weight">30%</span>
+                    <h3>Critical Article Review</h3>
+                    <p>A 2-3 page critical analysis of a recent (last 3 years) high-impact IEEE journal article. Focus
+                        on methodology critique, not just summary.</p>
+                </div>
+                <div class="card">
+                    <span class="weight">30%</span>
+                    <h3>Written Final Exam</h3>
+                    <p>Closed-book exam testing conceptual understanding of research design, ethics, statistics, and
+                        methodology.</p>
+                </div>
             </div>
 
-            <!-- Future course 2 -->
-            <div class="card" style="opacity: 0.8;">
-                <!-- <div class="course-code">CSCI 315</div> -->
-                <h3>Design and Analysis of Algorithms</h3>
-                <p>Complexity analysis, divide & conquer, dynamic programming, graph algorithms, NP-completeness.</p>
-                <span class="status-badge status-upcoming">Coming soon</span>
+            <h3>Policy</h3>
+            <ul>
+                <li><strong>Attendance:</strong> 80% mandatory. Missing >20% results in failure.</li>
+                <li><strong>Late Submissions:</strong> 10% penalty per day.</li>
+                <li><strong>Academic Integrity:</strong> Zero tolerance for plagiarism.</li>
+            </ul>
+        </section>
+
+        <!-- RESOURCES SECTION -->
+        <section id="resources">
+            <h2>Resources & Templates</h2>
+            <p>Use these templates for your assignments. Download them and fill them out.</p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>1. Topic Concept Note</h3>
+                    <p>Submit in Week 2. Use this to pitch your thesis idea.</p>
+                    <pre>
+Sections:
+1. Background & Context 
+2. Problem Statement 
+3. Research Questions
+4. Proposed Methodology 
+5. Feasibility Check
+                    </pre>
+                </div>
+                <div class="card">
+                    <h3>2. Literature Review Matrix</h3>
+                    <p>Excel sheet to organize your reading. Submit in Week 5.</p>
+                    <pre>
+Columns:
+- Citation
+- Research Problem
+- Methodology
+- Key Findings
+- Limitations/Gaps
+- Relevance to My Work
+                    </pre>
+                    <div class="template-container">
+                        <p><em>Create a table with these columns. Aim for 10-15 entries.</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ETHICS CASE STUDY -->
+        <section id="ethics">
+            <h2>Ethics Case Study: "The Perfect Plot"</h2>
+            <div style="background: #fff3cd; padding: 15px; border-left: 5px solid #ffc107; margin-bottom: 20px;">
+                <strong>Scenario:</strong> Alex, an M.Sc. student, runs simulations for his RIS beamforming algorithm.
+                His average result (17.9 bps/Hz) is slightly worse than the state-of-the-art (18.2 bps/Hz). However, one
+                specific random seed gave him 19.1 bps/Hz. He considers reporting only that best seed to impress his
+                supervisor.
             </div>
 
-            <!-- Future course 3 -->
-            <div class="card" style="opacity: 0.8;">
-                <!-- <div class="course-code">CSCI 340</div> -->
-                <h3>Database Systems</h3>
-                <p>Relational model, SQL, normalization, indexing, transactions, and NoSQL fundamentals.</p>
-                <span class="status-badge status-upcoming">Coming soon</span>
-            </div>
+            <h3>Discussion Questions</h3>
+            <ol>
+                <li>Is reporting the "best-case" seed without context ethical? Why or why not?</li>
+                <li>What is the difference between <strong>Fabrication</strong> and <strong>Falsification</strong>?</li>
+                <li>How should Alex present his results honestly if they don't beat the baseline?</li>
+            </ol>
 
-            <!-- Future course 4 -->
-            <div class="card" style="opacity: 0.8;">
-                <!-- <div class="course-code">CSCI 350</div> -->
-                <h3>Operating Systems</h3>
-                <p>Process scheduling, memory management, file systems, concurrency, and virtualization.</p>
-                <span class="status-badge status-upcoming">Coming soon</span>
-            </div>
+        </section>
 
-            <!-- Future course 5 -->
-            <div class="card" style="opacity: 0.8;">
-                <!-- <div class="course-code">CSCI 220</div> -->
-                <h3>Computer Architecture and Organization</h3>
-                <p>Instruction set design, pipelining, cache hierarchy, and performance optimization.</p>
-                <span class="status-badge status-upcoming">Coming soon</span>
-            </div>
-
-            <!-- Future course 6 -->
-            <div class="card" style="opacity: 0.8;">
-                <!-- <div class="course-code">CSCI 250</div> -->
-                <h3>Data Structures</h3>
-                <p>Stacks, queues, trees, hash tables, graphs; complexity and implementation in C++/Java.</p>
-                <span class="status-badge status-upcoming">Coming soon</span>
-            </div>
-        </div>
-
-        <footer>
-            <p>© 2026 Dr. Tesfamichael G. | Last updated April 30, 2026</p>
-        </footer>
     </div>
+
+    <footer>
+        <p>&copy; 2026 ECEG-6101 Course Team. Hosted on GitHub Pages.</p>
+    </footer>
+
 </body>
 
 </html>
